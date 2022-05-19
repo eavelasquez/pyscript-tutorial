@@ -26,6 +26,7 @@
     <br />
 
     <!--- Compute π example using PyScript --->
+    <div id="pi" class="alert alert-primary"></div>
     <py-script>
 print('Let\'s try some math! Compute π:')
 
@@ -36,8 +37,16 @@ def compute_pi(n):
   return pi
 
 pi = compute_pi(100000)
-s = f'π is approximately {pi:.3f}'
-print(s)
+pyscript.write('pi', f'π is approximately {pi:.3f}')
+    </py-script>
+
+    <br />
+
+    <!--- Labeled elements example using PyScript --->
+    <b><p>Today is <u><label id='today'></label></u></p></b>
+    <py-script>
+import datetime as dt
+pyscript.write('today', dt.date.today().strftime('%A %B %d, %Y'))
     </py-script>
   </body>
 </html>
