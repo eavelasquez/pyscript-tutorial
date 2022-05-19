@@ -23,19 +23,19 @@
     <title>PyScript Tutorial</title>
   </head>
   <body>
-    <h1>PyScript Tutorial</h1>
-    <p>The PyScript tutorial is a series of short examples using PyScript.</p>
+    <div class="container">
+      <h1>PyScript Tutorial</h1>
+      <p>The PyScript tutorial is a series of short examples using PyScript.</p>
 
-    <!-- "Hello, World!" example using PyScript --->
-    <py-script> print('Hello, World! From PyScript') </py-script>
+      <!-- "Hello, World!" example using PyScript --->
+      <py-script> print('Hello, World! From PyScript') </py-script>
 
-    <br />
+      <br />
 
-    <!--- Compute π example using PyScript --->
-    <div id="pi" class="alert alert-primary"></div>
-    <py-script>
-print('Let\'s try some math! Compute π:')
-
+      <!--- Compute π example using PyScript --->
+      <py-script>print('Let\'s try some math! Compute π:')</py-script>
+      <div id="pi" class="alert alert-primary"></div>
+      <py-script>
 def compute_pi(n):
   pi = 2
   for i in range(1, n):
@@ -44,23 +44,23 @@ def compute_pi(n):
 
 pi = compute_pi(100000)
 pyscript.write('pi', f'π is approximately {pi:.3f}')
-    </py-script>
+      </py-script>
 
-    <br />
+      <br />
 
-    <!--- Labeled elements example using PyScript --->
-    <b><p>Today is <u><label id='today'></label></u></p></b>
-    <py-script>
+      <!--- Labeled elements example using PyScript --->
+      <b><p>Today is <u><label id='today'></label></u></p></b>
+      <py-script>
 import datetime as dt
 pyscript.write('today', dt.date.today().strftime('%A %B %d, %Y'))
-    </py-script>
+      </py-script>
 
-    <br />
+      <br />
 
-    <!--- Plotting example using PyScript --->
-    <h2>Let's plot random numbers</h2>
-    <div id="plot" class="alert alert-primary"></div>
-    <py-script output="plot">
+      <!--- Plotting example using PyScript --->
+      <h2>Let's plot random numbers</h2>
+      <div id="plot" class="alert alert-danger" role="alert"></div>
+      <py-script output="plot">
 import matplotlib.pyplot as plt
 from data import make_x_and_y
 
@@ -69,6 +69,7 @@ x, y = make_x_and_y(n=1000)
 fig, ax = plt.subplots()
 ax.scatter(x, y)
 fig
-    </py-script>
+      </py-script>
+    </div>
   </body>
 </html>
