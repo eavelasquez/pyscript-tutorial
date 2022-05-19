@@ -13,6 +13,8 @@
     <py-env>
       - numpy
       - matplotlib
+      - paths:
+        - /data.py
     </py-env>
 
     <!-- Bootstrap CSS only -->
@@ -59,11 +61,10 @@ pyscript.write('today', dt.date.today().strftime('%A %B %d, %Y'))
     <h2>Let's plot random numbers</h2>
     <div id="plot" class="alert alert-primary"></div>
     <py-script output="plot">
-import numpy as np
 import matplotlib.pyplot as plt
+from data import make_x_and_y
 
-x = np.random.randn(1000)
-y = np.random.randn(1000)
+x, y = make_x_and_y(n=1000)
 
 fig, ax = plt.subplots()
 ax.scatter(x, y)
